@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Net.Sockets;
-using RPBCommon;
-using RPBCommon.Packet;
-using RPBNet.NetworkBase;
 using RPBNet.NetworkBase.Connections;
 using RPBNet.NetworkBase.Server;
 using RPBPacketBase;
-using RPBClient = RPBNet.NetworkBase.Client.RPBUnityClient;
 using UnityEngine;
+using Network = RPBNet.Network;
+using RPBClient = RPBNet.NetworkBase.Client.RPBUnityClient;
 
 namespace RPBNetUnity
 {
@@ -20,10 +17,10 @@ namespace RPBNetUnity
 
         private void Awake()
         {
-            RPBNet.Network.Initialize();
+            Network.Initialize();
         }
 
-        void Start()
+        private void Start()
         {
             var rc = _client.TryConnect(serverIPAddress, serverPort);
 
@@ -43,10 +40,9 @@ namespace RPBNetUnity
         }
 
 
-        public void RegisterAction<T>(Action<T,IConnection> action) where T : RPBPacket
+        public void RegisterAction<T>(Action<T, IConnection> action) where T : RPBPacket
         {
             PacketParser.RegisterPacketAction(action);
         }
     }
-
 }
