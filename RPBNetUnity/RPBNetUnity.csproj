@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+   <PropertyGroup>
+      <TargetFramework>netstandard2.1</TargetFramework>
+      <Nullable>enable</Nullable>
+   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\RPBCommon\RPBCommon\SMG1Common.csproj" />
-    <ProjectReference Include="..\..\RPBNet\RPBNet\RPBNet.csproj" />
-    <ProjectReference Include="..\..\RPBUtilities\RPBUtilities\RPBUtilities.csproj" />
-  </ItemGroup>
+   <ItemGroup>
+      <ProjectReference Include="..\..\RPBNet\RPBNet\RPBNet.csproj" />
+      <ProjectReference Include="..\..\RPBUtilities\RPBUtilities\RPBUtilities.csproj" />
+   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+   <ItemGroup>
+      <Reference Include="UnityEngine">
+         <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+         <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+   </ItemGroup>
    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(SolutionDir)output\$(ProjectName).dll&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;C:\Users\Alex\SMG1\Assets\include\$(ProjectName).dll&quot;" />
+      <Exec
+         Command="copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(SolutionDir)output\$(ProjectName).dll&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;C:\Users\Alex\SMG1\Assets\include\$(ProjectName).dll&quot;" />
    </Target>
 
 </Project>
